@@ -56,7 +56,7 @@ public class Fighterplane : MonoBehaviour
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log ("速度: " + rplane.velocity.magnitude);
+        Debug.Log (-0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * -0.07f * local_angle_x);
         
         
         if (angle != 0)//回転する
@@ -88,7 +88,7 @@ public class Fighterplane : MonoBehaviour
         {
             if ((local_angle_x > -10 && local_angle_x < 20))
             {
-                this.transform.Translate(new Vector3(0, -0.000001f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * -0.07f * local_angle_x, 0));
+                this.transform.Translate(new Vector3(0, -0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * -0.07f * local_angle_x, 0));
                 
             }
 
