@@ -8,6 +8,20 @@ public class Fighterplane : MonoBehaviour
     public KeyCode backKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
+    public GameObject ElevatorLeft;
+    public GameObject ElevatorRight;
+    public GameObject Fuselage;
+    public GameObject LeftBackWing;
+    public GameObject RightBackWing;
+    public GameObject LeftBaseWing;
+    public GameObject RightBaseWing;
+    public GameObject LeftRudder;
+    public GameObject RightRudder;
+    public GameObject LeftWing;
+    public GameObject RightWing;
+    public GameObject LeftFlap;
+    public GameObject RightFlap;
+
     
 
     public float movespeed = 2;//スピード:Inspectorで指定
@@ -88,15 +102,19 @@ public class Fighterplane : MonoBehaviour
         {
             if ((local_angle_x > -10 && local_angle_x < 20))
             {
-                this.transform.Translate(new Vector3(0, -0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * -0.07f * local_angle_x, 0));
+                this.transform.Translate(new Vector3(0, -0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.3f) * local_angle_x, 0));
                 
             }
 
-            if (local_angle_x >= 20 || local_angle_x <= -10)
+            if (local_angle_x >= 20)
+            {
+                this.transform.Translate(new Vector3(0, -0.00000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f* local_angle_x +//// * local_angle_x, 0));
+            }
+            
+            if (local_angle_x <= -10)
             {
                 this.transform.Translate(new Vector3(0, -0.00000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * 0.08f * local_angle_x, 0));
             }
-            
             
             if(Input.GetMouseButton(4))
             {
@@ -117,6 +135,8 @@ public class Fighterplane : MonoBehaviour
     }
 }
 
+
+// 揚力係数の計算間違ってる！直線の式を求める（傾きと切片）
 
 
 
