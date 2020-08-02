@@ -8,6 +8,8 @@ public class Fighterplane : MonoBehaviour
     public KeyCode backKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
+    public KeyCode upKey;
+    public KeyCode downKey;
     public GameObject ElevatorLeft;
     public GameObject ElevatorRight;
     public GameObject Fuselage;
@@ -38,6 +40,7 @@ public class Fighterplane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Rigidbody rb = this.GetComponent<Rigidbody> ();  // rigidbodyを取得
         rplane = this.GetComponent<Rigidbody>();
         rplane.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         Debug.Log(vx+"/"+vz);
@@ -70,7 +73,7 @@ public class Fighterplane : MonoBehaviour
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log (-0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * -0.07f * local_angle_x);
+        Debug.Log (0.0000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.3f));
         
         
         if (angle != 0)//回転する
@@ -82,17 +85,17 @@ public class Fighterplane : MonoBehaviour
         {
             if (rplane.velocity.magnitude < 400)
             {
-                Rigidbody rb = this.GetComponent<Rigidbody> ();  // rigidbodyを取得
+                
                 Vector3 force = new Vector3 (0.0f, 0.0f, vz / -50);    // 力を設定
-                rb.AddForce (force, ForceMode.Force);            // 力を加える
+                rplane.AddForce (force, ForceMode.Force);            // 力を加える
             }
         }
 
         if (Input.GetKey(backKey))//移動する
         {
-            Rigidbody rb = this.GetComponent<Rigidbody> ();  // rigidbodyを取得
+            
             Vector3 force = new Vector3 (0.0f, 0.0f, vz / -150);    // 力を設定
-            rb.AddForce (force);            // 力を加える
+            rplane.AddForce (force);            // 力を加える
         }
         
     
@@ -100,28 +103,32 @@ public class Fighterplane : MonoBehaviour
 
         if (rplane.velocity.magnitude > 150)
         {
-            if ((local_angle_x > -10 && local_angle_x < 20))
+            if ((local_angle_x > -14 && local_angle_x < 20))
             {
-                this.transform.Translate(new Vector3(0, -0.000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.3f) * local_angle_x, 0));
-                
+                // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
+                rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
             }
 
             if (local_angle_x >= 20)
             {
-                this.transform.Translate(new Vector3(0, -0.00000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f* local_angle_x +//// * local_angle_x, 0));
+                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
+                rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
             }
             
             if (local_angle_x <= -10)
             {
-                this.transform.Translate(new Vector3(0, -0.00000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * 0.08f * local_angle_x, 0));
+                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
+                rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
             }
             
-            if(Input.GetMouseButton(4))
+            // if(Input.GetMouseButton(4))
+            if (Input.GetKey(upKey))
             {
                 this.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
             }
 
-            if(Input.GetMouseButton(3))
+            // if(Input.GetMouseButton(3))
+            if (Input.GetKey(downKey))
             {
                 this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
             }
