@@ -65,6 +65,8 @@ public class Fighterplane : MonoBehaviour
         float local_angle_y = localAngle.y; // ローカル座標を基準にした、y軸を軸にした回転角度
         float local_angle_z = localAngle.z; // ローカル座標を基準にした、z軸を軸にした回転角度
 
+        float k = localAngle.x;
+
         if (local_angle_x >180)
         {
             local_angle_x = local_angle_x - 360;
@@ -73,7 +75,7 @@ public class Fighterplane : MonoBehaviour
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log (0.0000005f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.3f));
+        Debug.Log (0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
         
         
         if (angle != 0)//回転する
@@ -98,37 +100,38 @@ public class Fighterplane : MonoBehaviour
             rplane.AddForce (force);            // 力を加える
         }
         
-    
+        rplane.AddForce(new Vector3(0, 0 , 0.0001f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+
         
 
         if (rplane.velocity.magnitude > 150)
         {
-            if ((local_angle_x > -14 && local_angle_x < 20))
-            {
-                // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
-                rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
-            }
+            // if ((local_angle_x > -14 && local_angle_x < 20))
+            // {
+            //     // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
+            //     rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            // }
 
-            if (local_angle_x >= 20)
-            {
-                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
-                rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
-            }
+            // if (local_angle_x >= 20)
+            // {
+            //     // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
+            //     rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            // }
             
-            if (local_angle_x <= -10)
-            {
-                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
-                rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
-            }
+            // if (local_angle_x <= -10)
+            // {
+            //     // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
+            //     rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            // }
             
-            // if(Input.GetMouseButton(4))
-            if (Input.GetKey(upKey))
+            if(Input.GetMouseButton(4))
+            // if (Input.GetKey(upKey))
             {
                 this.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
             }
 
-            // if(Input.GetMouseButton(3))
-            if (Input.GetKey(downKey))
+            if(Input.GetMouseButton(3))
+            // if (Input.GetKey(downKey))
             {
                 this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
             }
@@ -161,3 +164,10 @@ public class Fighterplane : MonoBehaviour
     // ※おそらくcollisionが重複してバグっているネットの記事を参考に重複しない位置をためす
     
     // ③両翼フラップのアニメーション
+
+//     {
+//                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
+//                 rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f), 0));
+//             }
+//             [ 1.19456812e-09 -6.55034287e-08  1.28565726e-06  5.56808666e-04
+//  -2.23880625e-03  2.85567727e-04]
