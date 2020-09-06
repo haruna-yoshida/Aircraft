@@ -23,8 +23,8 @@ public class Fighterplane : MonoBehaviour
     public GameObject RightWing;
     public GameObject LeftFlap;
     public GameObject RightFlap;
-
     
+    [SerializeField] private GameObject parentObject;
 
     public float movespeed = 2;//スピード:Inspectorで指定
     public float rotatespeed = 90;//回転スピード:Inspectorで指定
@@ -44,7 +44,19 @@ public class Fighterplane : MonoBehaviour
         rplane = this.GetComponent<Rigidbody>();
         rplane.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         Debug.Log(vx+"/"+vz);
+        var childTransform = GameObject.Find("RootObject").GetComponentsInChildren<Transform>();
+
+        // foreach (Transform childTransform in this.gameObject.transform)
+        // {
+        //     Debug.Log(childTransform.gameObject.name); // 子オブジェクト名を出力
+        //     foreach (Transform grandChildTransform in childTransform)
+        //     {
+        //         Debug.Log(grandChildTransform.gameObject.name); // 孫オブジェクト名を出力
+        //     }
+        // }
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -65,19 +77,21 @@ public class Fighterplane : MonoBehaviour
         float local_angle_y = localAngle.y; // ローカル座標を基準にした、y軸を軸にした回転角度
         float local_angle_z = localAngle.z; // ローカル座標を基準にした、z軸を軸にした回転角度
 
-        float k = localAngle.x;
+        
 
         if (local_angle_x >180)
         {
             local_angle_x = local_angle_x - 360;
         }
 
+        float k = local_angle_x;
+
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log (0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
-        
-        
+        Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
+        //  Debug.Log(k);
+
         if (angle != 0)//回転する
         {
             this.transform.Rotate(new Vector3(0, 0, angle / -100));
@@ -100,40 +114,43 @@ public class Fighterplane : MonoBehaviour
             rplane.AddForce (force);            // 力を加える
         }
         
-        rplane.AddForce(new Vector3(0, 0 , 0.0001f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+        // rplane.AddForce(new Vector3(0, 0 , 0.0001f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
 
         
 
         if (rplane.velocity.magnitude > 150)
         {
-            // if ((local_angle_x > -14 && local_angle_x < 20))
-            // {
-            //     // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
-            //     rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
-            // }
+            if ((local_angle_x > -14 && local_angle_x < 20))
+            {
+                // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            }
 
-            // if (local_angle_x >= 20)
-            // {
-            //     // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
-            //     rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
-            // }
+            if (local_angle_x >= 20)
+            {
+                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            }
             
-            // if (local_angle_x <= -10)
-            // {
-            //     // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
-            //     rplane.AddForce(new Vector3(0, 0.00000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
-            // }
+            if (local_angle_x <= -10)
+            {
+                // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+            }
             
             if(Input.GetMouseButton(4))
             // if (Input.GetKey(upKey))
             {
                 this.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
+                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
+              
             }
 
             if(Input.GetMouseButton(3))
             // if (Input.GetKey(downKey))
             {
                 this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
+                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / -100, 0));
             }
 
             
@@ -169,5 +186,5 @@ public class Fighterplane : MonoBehaviour
 //                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
 //                 rplane.AddForce(new Vector3(0, 0.000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019456812f * (Mathf.Pow(k,5)) + (-0.0000000655034287f) * (Mathf.Pow(k,4)) + 0.000001285657266f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f), 0));
 //             }
-//             [ 1.19456812e-09 -6.55034287e-08  1.28565726e-06  5.56808666e-04
-//  -2.23880625e-03  2.85567727e-04]
+//   DL  [ 0.0000000019457 -0.0000000655034  0.0000012856573  0.000556808666 -0.00223880625  -0.00223880625 0.000285567727]
+//   CL  [ 0.0000000354338393  0.000000509190499 -0.000153162784  0.000168228489  0.108152531  0.334100114]
