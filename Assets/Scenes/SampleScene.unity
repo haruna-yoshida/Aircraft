@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 36422062}
   m_Layer: 0
   m_Name: Terrain (7)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 43215989}
   m_Layer: 0
   m_Name: Terrain (35)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 73070669}
   m_Layer: 0
   m_Name: Terrain (23)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 77696450}
   m_Layer: 0
   m_Name: Terrain (10)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 111778380}
   m_Layer: 0
   m_Name: Terrain (4)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 151897855}
   m_Layer: 0
   m_Name: Terrain (22)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 192418422}
   m_Layer: 0
   m_Name: Terrain (12)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 292310306}
   m_Layer: 0
   m_Name: Terrain (11)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 328382935}
   m_Layer: 0
   m_Name: Terrain (2)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
-  isBrushPainting: 0
+  isBrushPainting: 1
   brushPosition: {x: 0, y: 0, z: 0}
   brushSize: 50
   brushOpacity: 1
@@ -1729,7 +1729,7 @@ GameObject:
   - component: {fileID: 338667572}
   m_Layer: 0
   m_Name: Terrain (16)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 348216598}
   m_Layer: 0
   m_Name: Terrain (5)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2045,7 +2045,7 @@ GameObject:
   - component: {fileID: 358171954}
   m_Layer: 0
   m_Name: Terrain (33)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2203,7 +2203,7 @@ GameObject:
   - component: {fileID: 376521711}
   m_Layer: 0
   m_Name: Terrain (17)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2361,7 +2361,7 @@ GameObject:
   - component: {fileID: 387720915}
   m_Layer: 0
   m_Name: Terrain (6)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2519,7 +2519,7 @@ GameObject:
   - component: {fileID: 478338900}
   m_Layer: 0
   m_Name: Terrain (29)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2677,7 +2677,7 @@ GameObject:
   - component: {fileID: 522916637}
   m_Layer: 0
   m_Name: Terrain (28)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2835,7 +2835,7 @@ GameObject:
   - component: {fileID: 538482499}
   m_Layer: 0
   m_Name: Terrain (27)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2993,7 +2993,7 @@ GameObject:
   - component: {fileID: 593895340}
   m_Layer: 0
   m_Name: Terrain (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3151,7 +3151,7 @@ GameObject:
   - component: {fileID: 643867318}
   m_Layer: 0
   m_Name: Terrain (41)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3323,7 +3323,7 @@ GameObject:
   - component: {fileID: 652769564}
   m_Layer: 0
   m_Name: Terrain (37)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 687153522}
   m_Layer: 0
   m_Name: Terrain (8)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3731,7 +3731,7 @@ GameObject:
   - component: {fileID: 771071741}
   m_Layer: 0
   m_Name: Terrain (6)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3889,7 +3889,7 @@ GameObject:
   - component: {fileID: 775091133}
   m_Layer: 0
   m_Name: Terrain (26)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4047,7 +4047,7 @@ GameObject:
   - component: {fileID: 808814491}
   m_Layer: 0
   m_Name: Terrain (8)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4205,7 +4205,7 @@ GameObject:
   - component: {fileID: 831432367}
   m_Layer: 0
   m_Name: Terrain (31)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4363,7 +4363,7 @@ GameObject:
   - component: {fileID: 845807954}
   m_Layer: 0
   m_Name: Terrain (36)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4521,7 +4521,7 @@ GameObject:
   - component: {fileID: 862752624}
   m_Layer: 0
   m_Name: Terrain (4)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4679,7 +4679,7 @@ GameObject:
   - component: {fileID: 902377136}
   m_Layer: 0
   m_Name: Terrain (25)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4837,7 +4837,7 @@ GameObject:
   - component: {fileID: 920427493}
   m_Layer: 0
   m_Name: Terrain (38)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4995,7 +4995,7 @@ GameObject:
   - component: {fileID: 928360928}
   m_Layer: 0
   m_Name: Terrain (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5264,7 +5264,7 @@ GameObject:
   - component: {fileID: 1053691159}
   m_Layer: 0
   m_Name: Terrain (30)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5422,7 +5422,7 @@ GameObject:
   - component: {fileID: 1228862631}
   m_Layer: 0
   m_Name: Terrain (40)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5594,7 +5594,7 @@ GameObject:
   - component: {fileID: 1366707016}
   m_Layer: 0
   m_Name: Terrain (24)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5780,7 +5780,7 @@ GameObject:
   - component: {fileID: 1453112768}
   m_Layer: 0
   m_Name: Terrain (14)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5938,7 +5938,7 @@ GameObject:
   - component: {fileID: 1478729609}
   m_Layer: 0
   m_Name: Terrain (13)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6110,7 +6110,7 @@ GameObject:
   - component: {fileID: 1560247727}
   m_Layer: 0
   m_Name: Terrain (34)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6268,7 +6268,7 @@ GameObject:
   - component: {fileID: 1620999144}
   m_Layer: 0
   m_Name: Terrain (32)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6426,7 +6426,7 @@ GameObject:
   - component: {fileID: 1635493786}
   m_Layer: 0
   m_Name: Terrain (19)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6598,7 +6598,7 @@ GameObject:
   - component: {fileID: 1801250854}
   m_Layer: 0
   m_Name: Terrain (20)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6806,7 +6806,7 @@ GameObject:
   - component: {fileID: 1826092833}
   m_Layer: 0
   m_Name: Terrain (39)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6964,7 +6964,7 @@ GameObject:
   - component: {fileID: 1854102957}
   m_Layer: 0
   m_Name: Terrain (18)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7150,7 +7150,7 @@ GameObject:
   - component: {fileID: 1897114755}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7355,7 +7355,7 @@ GameObject:
   - component: {fileID: 1897702499}
   m_Layer: 0
   m_Name: Terrain (15)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7513,7 +7513,7 @@ GameObject:
   - component: {fileID: 1906265996}
   m_Layer: 0
   m_Name: Terrain (9)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7671,7 +7671,7 @@ GameObject:
   - component: {fileID: 1926859258}
   m_Layer: 0
   m_Name: Terrain (21)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7829,7 +7829,7 @@ GameObject:
   - component: {fileID: 1930791088}
   m_Layer: 0
   m_Name: Terrain (7)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8015,7 +8015,7 @@ GameObject:
   - component: {fileID: 2110193532}
   m_Layer: 0
   m_Name: Terrain (3)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

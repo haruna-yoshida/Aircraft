@@ -28,6 +28,7 @@ public class Fighterplane : MonoBehaviour
 
     public float movespeed = 2;//スピード:Inspectorで指定
     public float rotatespeed = 90;//回転スピード:Inspectorで指定
+    private bool isGrounded = true;
     float vx = 0;
     float vz = 0;
     float angle = 0;
@@ -89,7 +90,7 @@ public class Fighterplane : MonoBehaviour
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
+        Debug.Log (isGrounded);
         //  Debug.Log(k);
 
         if (angle != 0)//回転する
@@ -138,6 +139,33 @@ public class Fighterplane : MonoBehaviour
                 rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
             }
             
+            
+
+            
+            
+            
+            
+        }
+
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.name == "ground")
+            {
+                  isGrounded = true;
+            }
+        }
+ 
+        void OnCollisionExit(Collision collision)
+        {
+            if(collision.gameObject.name == "ground")
+            {
+                    isGrounded = false;
+            }
+        }
+
+        if (isGrounded == true && rplane.velocity.magnitude > 150)
+        {
             if(Input.GetMouseButton(4))
             // if (Input.GetKey(upKey))
             {
@@ -152,12 +180,27 @@ public class Fighterplane : MonoBehaviour
                 this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
                 // RightFlap.transform.Rotate(new Vector3(0.3f, angle / -100, 0));
             }
-
-            
-            
-            
-            
         }
+
+        if(isGrounded == false)
+        {
+            if(Input.GetMouseButton(4))
+            // if (Input.GetKey(upKey))
+            {
+                this.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
+                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
+              
+            }
+
+            if(Input.GetMouseButton(3))
+            // if (Input.GetKey(downKey))
+            {
+                this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
+                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / -100, 0));
+            }
+        }
+
+        
             
     }
 }
