@@ -90,7 +90,7 @@ public class Fighterplane : MonoBehaviour
         // // 速度ベクトルを表示
         // Debug.Log ("速度ベクトル: " + rplane.velocity);
         // 速度を表示
-        Debug.Log (isGrounded);
+        // Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
         //  Debug.Log(k);
 
         if (angle != 0)//回転する
@@ -152,7 +152,7 @@ public class Fighterplane : MonoBehaviour
         {
             if (collision.gameObject.name == "ground")
             {
-                  isGrounded = true;
+                isGrounded = true;
             }
         }
  
@@ -160,8 +160,9 @@ public class Fighterplane : MonoBehaviour
         {
             if(collision.gameObject.name == "ground")
             {
-                    isGrounded = false;
+                isGrounded = false;
             }
+            Debug.Log("aaaa");
         }
 
         if (isGrounded == true && rplane.velocity.magnitude > 150)
