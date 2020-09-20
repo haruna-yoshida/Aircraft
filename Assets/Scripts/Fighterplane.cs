@@ -86,9 +86,10 @@ public class Fighterplane : MonoBehaviour
         }
 
         float k = local_angle_x;
+        
 
         // // 速度ベクトルを表示
-        // Debug.Log ("速度ベクトル: " + rplane.velocity);
+        Debug.Log (rplane.velocity.magnitude);
         // 速度を表示
         // Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
         //  Debug.Log(k);
@@ -98,9 +99,9 @@ public class Fighterplane : MonoBehaviour
             this.transform.Rotate(new Vector3(0, 0, angle / -100));
         }
 
-        if (Input.GetKey(frontKey))//移動する
+        if (rplane.velocity.magnitude < 400)//移動する
         {
-            if (rplane.velocity.magnitude < 400)
+            if (Input.GetKey(frontKey))
             {
                 
                 Vector3 force = new Vector3 (0.0f, 0.0f, vz / -50);    // 力を設定
@@ -124,19 +125,19 @@ public class Fighterplane : MonoBehaviour
             if ((local_angle_x > -14 && local_angle_x < 20))
             {
                 // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
-                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), -0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
             }
 
             if (local_angle_x >= 20)
             {
                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
-                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), -0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
             }
             
             if (local_angle_x <= -10)
             {
                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
-                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
+                rplane.AddForce(new Vector3(0, 0.00003f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), -0.01f* 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f)));
             }
             
             
