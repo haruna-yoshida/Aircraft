@@ -1607,7 +1607,7 @@ MonoBehaviour:
   generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
-  isBrushPainting: 1
+  isBrushPainting: 0
   brushPosition: {x: 0, y: 0, z: 0}
   brushSize: 50
   brushOpacity: 1
@@ -5031,7 +5031,7 @@ MonoBehaviour:
   generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
-  isBrushPainting: 0
+  isBrushPainting: 1
   brushPosition: {x: 0, y: 0, z: 0}
   brushSize: 50
   brushOpacity: 1
@@ -8780,7 +8780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172669250316877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 550, y: 0.7, z: 5910}
+  m_LocalPosition: {x: 550, y: 0.5, z: 5910}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6489187693208101140}
