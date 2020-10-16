@@ -83,8 +83,7 @@ public class Fighterplane : MonoBehaviour {
         // 速度を表示
         // Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
         //  Debug.Log(k);
-        Debug.Log (cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (0.09f * local_angle_x + 0.35f));
-
+        Debug.Log(Mathf.Abs(sin));
         if (angle != 0) //回転する
         {
             this.transform.Rotate (new Vector3 (0, 0, angle / -100));
@@ -114,19 +113,19 @@ public class Fighterplane : MonoBehaviour {
             if ((local_angle_x > -14 && local_angle_x < 20)) //迎角が−14~20
             {
                 // this.transform.Translate(new Vector3(0, 0.0000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.09f * local_angle_x + 0.35f), 0));
-                rplane.AddForce (new Vector3 (0, cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (0.09f * local_angle_x + 0.35f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (0.09f * local_angle_x + 0.35f)));
+                rplane.AddForce (new Vector3 (cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (0.09f * local_angle_x + 0.35f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (0.09f * local_angle_x + 0.35f), 0));
             }
 
             if (local_angle_x >= 20) //迎角が20以上
             {
                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x + 0.1f), 0));
-                rplane.AddForce (new Vector3 (0,cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x + 0.1f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x + 0.1f)));
+                rplane.AddForce (new Vector3 (cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x + 0.1f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x + 0.1f), 0));
             }
 
             if (local_angle_x <= -10) //迎角が-10以下
             {
                 // this.transform.Translate(new Vector3(0, 0.000000008f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (-0.08f * local_angle_x - 1.7f), 0));
-                rplane.AddForce (new Vector3 (0, cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x - 1.7f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x - 1.7f)));
+                rplane.AddForce (new Vector3 (cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x - 1.7f), sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　 * 30 * (-0.08f * local_angle_x - 1.7f), 0));
             }
         }
 
