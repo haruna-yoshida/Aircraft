@@ -10,6 +10,8 @@ public class Fighterplane : MonoBehaviour
     public KeyCode leftKey;
     public KeyCode upKey;
     public KeyCode downKey;
+    public KeyCode turnrightKey;
+    public KeyCode turnleftKey;
     public GameObject ElevatorLeft;
     public GameObject ElevatorRight;
     public GameObject Fuselage;
@@ -89,7 +91,7 @@ public class Fighterplane : MonoBehaviour
         // 速度を表示
         // Debug.Log (0.01f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude　* 30 * (0.0000000019457f * (Mathf.Pow(k,5)) + (-0.0000000655034f) * (Mathf.Pow(k,4)) + 0.0000012856573f * (Mathf.Pow(k,3)) + 0.000556808666f * (Mathf.Pow(k,2)) + (-0.00223880625f) * k + 0.000285567727f));
         //  Debug.Log(k);
-        Debug.Log(sin * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude * 30 * (0.09f * local_angle_x + 0.35f));
+        Debug.Log(cos * 0.1f * 0.5f * 1.293f * rplane.velocity.magnitude * rplane.velocity.magnitude * 30 * (0.09f * local_angle_x + 0.35f) - tan * 10000);
         if (angle != 0) //回転する
         {
             this.transform.Rotate(new Vector3(0, 0, angle / -100));
@@ -99,7 +101,6 @@ public class Fighterplane : MonoBehaviour
         {
             if (Input.GetKey(frontKey))
             {
-
                 Vector3 force = new Vector3(0.0f, 0.0f, vz / -10); // 力を設定
                 rplane.AddForce(force, ForceMode.Force); // 力を加える
             }
@@ -107,7 +108,6 @@ public class Fighterplane : MonoBehaviour
 
         if (Input.GetKey(backKey)) //移動する
         {
-
             Vector3 force = new Vector3(0.0f, 0.0f, vz / -15); // 力を設定
             rplane.AddForce(force); // 力を加える
         }
@@ -159,16 +159,23 @@ public class Fighterplane : MonoBehaviour
             if (Input.GetMouseButton(4)) //迎角を上げる
             // if (Input.GetKey(upKey))
             {
-                this.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
-                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / 100, 0));
-
+                this.transform.Rotate(new Vector3(0, angle / 100, 0));
             }
 
             if (Input.GetMouseButton(3)) //迎角を下げる
             // if (Input.GetKey(downKey))
             {
-                this.transform.Rotate(new Vector3(-0.3f, angle / 100, 0));
-                // RightFlap.transform.Rotate(new Vector3(0.3f, angle / -100, 0));
+                this.transform.Rotate(new Vector3(0, angle / 100, 0));
+            }
+
+            if (Input.GetKey(turnrightKey))
+            {
+                this.transform.Rotate(new Vector3(0, 0, angle / 100));
+            }
+
+            if (Input.GetKey(turnleftKey))
+            {
+                this.transform.Rotate(new Vector3(0, 0, angle / -100));
             }
         }
 
